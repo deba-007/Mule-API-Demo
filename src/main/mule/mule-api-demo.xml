@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5a90f837-26c6-4df6-8125-8c9a0b8f0ab2" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule-api-demoFlow" doc:id="115e6c05-6fa9-482e-837f-e5bc35783d1b" >
+		<http:listener doc:name="Listener" doc:id="cd5bcadf-e8d9-4f2e-b5f1-3651af1ba9fd" path="/demoapi" config-ref="HTTP_Listener_config"/>
+		<set-payload value='#[[&#10;	{&#10;		color: "red",&#10;		value: "#f00"&#10;	},&#10;	{&#10;		color: "green",&#10;		value: "#0f0"&#10;	},&#10;	{&#10;		color: "blue",&#10;		value: "#00f"&#10;	},&#10;	{&#10;		color: "cyan",&#10;		value: "#0ff"&#10;	},&#10;	{&#10;		color: "magenta",&#10;		value: "#f0f"&#10;	},&#10;	{&#10;		color: "yellow",&#10;		value: "#ff0"&#10;	},&#10;	{&#10;		color: "black",&#10;		value: "#000"&#10;	}&#10;]]' doc:name="Set Payload" doc:id="124c386a-0637-4ac6-b9f0-a8a869499ed0" />
+	</flow>
+</mule>
